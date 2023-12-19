@@ -3,25 +3,25 @@ package com.uybor.component;
 import com.uybor.entity.User;
 import com.uybor.repo.AuthRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
-@Configuration
 @RequiredArgsConstructor
 public class DataLoader implements CommandLineRunner {
 
-    @Value("${spring.jpa.hibernate.ddl-auto}")
     private String init;
 
     private final PasswordEncoder encoder;
     private final AuthRepository authRepository;
 
+    private final Environment environment;
+
     @Override
     public void run(String... args) throws Exception {
+        init = environment.getProperty("spring.jpa.hibernate.ddl-auto");
         if (init.equals("create-drop") || init.equals("create")) {
             authRepository.save(
                     User.builder()

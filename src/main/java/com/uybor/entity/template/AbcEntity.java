@@ -11,7 +11,6 @@ import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.security.Timestamp;
 import java.util.UUID;
 
 @Data
@@ -28,11 +27,11 @@ public class AbcEntity {
 
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
-    private Timestamp createdAt;
+    private java.sql.Timestamp createdAt;
 
     @Column(nullable = false)
     @UpdateTimestamp
-    private Timestamp updateAt;
+    private java.sql.Timestamp updateAt;
 
     @CreatedBy
     @Column(updatable = false)
