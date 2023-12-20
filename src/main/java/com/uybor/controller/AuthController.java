@@ -1,5 +1,7 @@
 package com.uybor.controller;
 
+import com.uybor.payload.SignInDTO;
+import com.uybor.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,10 @@ public class AuthController {
         return ResponseEntity.ok(authService.register(signInDTO));
     }
 
+    @GetMapping("/greeting")
+    public String getGreeting() {
+        return "Hello";
+    }
 
 
 }

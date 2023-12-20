@@ -35,7 +35,7 @@ public class SecurityFilterChainConfig {
         httpSecurity.csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/v1/api/auth/**", "/v1/api/attachment/**", "/v1/api/order/**", "/v1/api/blogs/**", "/v1/api/request/**").permitAll()
+                .requestMatchers("api/v1/auth/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

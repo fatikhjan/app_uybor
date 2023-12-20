@@ -23,6 +23,9 @@ public class User extends AbcEntity implements UserDetails {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "userName")
+    private String userName;
+
     @Column(name = "email")
     private String email;
 
